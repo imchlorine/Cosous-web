@@ -4,25 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe App - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #FF6B6B;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+        }
+        
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fdfdfd;
-            color: #333;
+            font-family: 'Outfit', sans-serif;
+            /* A warm, appetizing background gradient */
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFE3E3 100%);
+            color: var(--text-dark);
+            overflow: hidden;
         }
+
+        /* Decorative background blurred shapes */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .shape1 {
+            width: 300px; height: 300px;
+            background: #FFD93D; /* Warm yellow */
+            top: -50px; left: -50px;
+        }
+        .shape2 {
+            width: 400px; height: 400px;
+            background: #FF6B6B; /* Soft red */
+            bottom: -100px; right: -100px;
+        }
+
+        /* The main content box */
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 3rem 4rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            text-align: center;
+            max-width: 500px;
+            width: 85%;
+            /* Entry animation */
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            /* Continuous floating animation */
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
         h1 {
-            font-size: 3rem;
-            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Responsive design for mobile phones */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .card { padding: 2rem; }
+            .icon { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
-    <h1>Stay Tuned</h1>
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    
+    <div class="card">
+        <div class="icon">🧑‍🍳</div>
+        <h1>Stay Tuned</h1>
+        <p>We are cooking up something incredibly delicious. The official app is simmering and will be served soon!</p>
+    </div>
 </body>
 </html>
-
