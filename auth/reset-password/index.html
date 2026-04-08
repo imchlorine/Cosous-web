@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Verification</title>
+    <title>Reset Password</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
         .card { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; max-width: 400px; width: 90%; }
         .icon { font-size: 50px; margin-bottom: 20px; }
         h1 { font-size: 24px; margin-bottom: 10px; color: #111827; }
         p { color: #6b7280; line-height: 1.5; margin-bottom: 25px; }
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.2s; }
-        .btn-success { background-color: #3ecf8e; color: white; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.1s; }
+        .btn-primary { background-color: #3ecf8e; color: white; }
         .btn-error { background-color: #ef4444; color: white; }
         .btn:active { transform: scale(0.98); }
     </style>
@@ -19,56 +19,55 @@
 <body>
 
     <div class="card">
-        <div id="icon" class="icon">⏳</div>
-        <h1 id="title">Verifying...</h1>
-        <p id="message">Please wait while we check your link.</p>
+        <div id="icon" class="icon">🔑</div>
+        <h1 id="title">Reset Password</h1>
+        <p id="message">Verifying your request...</p>
         <div id="action-area"></div>
     </div>
 
     <script>
-        // 1. Parse the URL parameters
         const params = new URLSearchParams(window.location.search);
         const code = params.get('code');
         const error = params.get('error');
         const errorDescription = params.get('error_description');
         
-        // Configuration: Change this to your Xcode URL Scheme
-        const appScheme = "Cosous://login-callback";
+        // Configuration: Use your same SwiftUI App Scheme
+        const appScheme = "Cosous://reset-password";
 
         const iconEl = document.getElementById('icon');
         const titleEl = document.getElementById('title');
         const messageEl = document.getElementById('message');
         const actionArea = document.getElementById('action-area');
 
-        // 2. CASE: SUCCESS (Link is valid)
+        // 1. Check for missing params (Direct access check)
+        if (!code && !error) {
+            window.location.href = "/404"; // Or show your custom 404 logic
+        }
+
+        // 2. CASE: SUCCESS (Code is present)
         if (code && !error) {
-            iconEl.innerText = "✅";
-            titleEl.innerText = "Verified!";
-            messageEl.innerText = "Your email is confirmed. Redirecting you to the app...";
+            messageEl.innerText = "Request confirmed! Opening the app to set your new password...";
             
-            // Attempt auto-redirect to SwiftUI app
             const deepLink = `${appScheme}?code=${code}`;
+            
+            // Try to jump to SwiftUI app automatically
             window.location.href = deepLink;
 
-            // Show manual button if redirect is blocked by browser
+            // Fallback button
             setTimeout(() => {
-                actionArea.innerHTML = `<a href="${deepLink}" class="btn btn-success">Open App</a>`;
+                actionArea.innerHTML = `<a href="${deepLink}" class="btn btn-primary">Open App</a>`;
             }, 2000);
         } 
         
-        // 3. CASE: ERROR (Expired, Invalid, or Already Used)
+        // 3. CASE: ERROR (Expired or Invalid)
         else {
-            iconEl.innerText = "❌";
+            iconEl.innerText = "⚠️";
             titleEl.innerText = "Link Expired";
-            
-            // Use Supabase's error message or a default one
-            messageEl.innerText = errorDescription || "This verification link is no longer valid or has already been used.";
+            messageEl.innerText = errorDescription || "This password reset link is invalid or has expired.";
             
             actionArea.innerHTML = `
-                <a href="Cosous://resend" class="btn btn-error">Return to App</a>
-                <p style="font-size: 12px; margin-top: 15px; color: #9ca3af;">
-                    Tip: Request a new link from the login screen.
-                </p>
+                <a href="Cosous://forgot-password" class="btn btn-error">Return to App</a>
+                <p style="font-size: 12px; margin-top: 15px; color: #9ca3af;">Please request a new link from the login screen.</p>
             `;
         }
     </script>
