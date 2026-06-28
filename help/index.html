@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Center — Cosous</title>
+<script>
+// Redirect /help/ to the best language: saved choice > browser > English
+(function(){
+  var LANGS = ['en','zh','es','ja'];
+  function norm(v){
+    if(!v) return null; v = v.toLowerCase();
+    if(v.indexOf('zh')===0) return 'zh';
+    if(v.indexOf('es')===0) return 'es';
+    if(v.indexOf('ja')===0) return 'ja';
+    if(v.indexOf('en')===0) return 'en';
+    return null;
+  }
+  var saved; try{ saved = norm(localStorage.getItem('cosous-lang')); }catch(e){}
+  var lang = saved || norm(navigator.language) || 'en';
+  location.replace(lang + '/');
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=en/"></noscript>
+</head>
+<body>
+<p style="font-family:system-ui,sans-serif;padding:24px">Redirecting to the Help Center… <a href="en/">Continue</a></p>
+</body>
+</html>
