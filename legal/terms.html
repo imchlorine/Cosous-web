@@ -4,104 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Service — Cosous</title>
-<meta name="description" content="Cosous Terms of Service — the terms that govern your use of the app.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--primary:#E8852B;--ink:#2A2622;--muted:#7A736B;--bg:#F5F1E8;--line:#E7E0D3;--shadow:0 24px 50px rgba(42,38,34,.08)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:780px;margin:0 auto;padding:0 24px}
-.wrap-wide{max-width:1180px;margin:0 auto;padding:0 24px}
-
-header{position:sticky;top:0;z-index:50;background:rgba(250,249,247,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.3rem}
-.logo .mark{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--primary),#ff9472);display:grid;place-items:center;color:#fff}
-.logo .mark svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.btn-dark{background:var(--ink);color:#fff;padding:13px 22px;border-radius:999px;font-weight:600;font-size:.92rem;display:inline-block;transition:transform .2s}
-.btn-dark:hover{transform:translateY(-2px)}
-
-.legal-hero{padding:60px 0 24px}
-.legal-hero .eyebrow{color:var(--primary);font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase}
-.legal-hero h1{font-size:clamp(2rem,5vw,2.8rem);font-weight:800;letter-spacing:-1px;margin:12px 0 10px}
-.legal-hero .updated{color:var(--muted);font-size:.9rem}
-
-.prose{background:#fff;border:1px solid var(--line);border-radius:22px;padding:40px;margin:18px 0 70px;box-shadow:var(--shadow)}
-.prose h2{font-size:1.2rem;font-weight:800;margin:30px 0 8px;display:flex;align-items:baseline;gap:10px}
-.prose h2:first-child{margin-top:0}
-.prose h2 .n{color:var(--primary);font-size:.95rem;font-weight:800}
-.prose p{color:#4a443c;margin:0 0 4px}
-.prose ul{margin:6px 0 4px;padding-left:22px;color:#4a443c}
-.prose li{margin:4px 0}
-.prose a{color:var(--primary);font-weight:600}
-.prose strong{color:var(--ink)}
-
-footer{padding:36px 0;border-top:1px solid var(--line)}
-.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:.88rem}
-.foot a:hover{color:var(--ink)}
-.foot .links{display:flex;gap:22px}
-</style>
+<script>
+(function(){
+  function norm(v){
+    if(!v) return null; v = v.toLowerCase();
+    if(v.indexOf('zh')===0) return 'zh';
+    if(v.indexOf('es')===0) return 'es';
+    if(v.indexOf('ja')===0) return 'ja';
+    if(v.indexOf('en')===0) return 'en';
+    return null;
+  }
+  var saved; try{ saved = norm(localStorage.getItem('cosous-lang')); }catch(e){}
+  var lang = saved || norm(navigator.language) || 'en';
+  location.replace(lang + '/terms.html');
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=en/terms.html"></noscript>
 </head>
-<body>
-
-<header>
-  <div class="wrap-wide">
-    <nav>
-      <a href="../index.html" class="logo"><span class="mark"><svg viewBox="0 0 24 24"><path d="M4 9h16v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="4" y1="12.5" x2="2" y2="12.5"/><line x1="20" y1="12.5" x2="22" y2="12.5"/><path d="M9.5 6c-.4-1 .2-2 .6-2.7M14.5 6c-.4-1 .2-2 .6-2.7"/></svg></span> Cosous</a>
-      <a href="../index.html#download" class="btn-dark">Download App</a>
-    </nav>
-  </div>
-</header>
-
-<section class="legal-hero">
-  <div class="wrap">
-    <div class="eyebrow">Legal</div>
-    <h1>Terms of Service</h1>
-    <div class="updated">Last updated: June 2026</div>
-  </div>
-</section>
-
-<section class="wrap">
-  <div class="prose">
-    <p>By downloading or using Cosous, you agree to the following terms. Please read them carefully.</p>
-
-    <h2><span class="n">1.</span> Account Responsibility</h2>
-    <p>You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account.</p>
-
-    <h2><span class="n">2.</span> Acceptable Use</h2>
-    <p>You agree not to use the service for any illegal activities, to transmit viruses or malicious code, or to attempt to breach the security of the application. Recipes and content you import remain your responsibility to use in line with the rights of their original creators.</p>
-
-    <h2><span class="n">3.</span> Subscriptions</h2>
-    <p>Premium features are offered through paid subscriptions billed by the App Store or Google Play. You can manage, upgrade, or cancel your subscription at any time through your store account.</p>
-
-    <h2><span class="n">4.</span> Termination</h2>
-    <p>We reserve the right to suspend or terminate accounts that violate these terms or engage in fraudulent activity.</p>
-
-    <h2><span class="n">5.</span> Limitation of Liability</h2>
-    <p>The service is provided "as is." We are not liable for any damages resulting from the use or inability to use the service.</p>
-
-    <h2><span class="n">6.</span> Contact Us</h2>
-    <p>Questions about these terms? Reach out at <a href="mailto:support@cosous.app">support@cosous.app</a>.</p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap-wide">
-    <div class="foot">
-      <a href="../index.html" class="logo" style="font-size:1.1rem"><span class="mark" style="width:30px;height:30px"><svg viewBox="0 0 24 24"><path d="M4 9h16v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="4" y1="12.5" x2="2" y2="12.5"/><line x1="20" y1="12.5" x2="22" y2="12.5"/><path d="M9.5 6c-.4-1 .2-2 .6-2.7M14.5 6c-.4-1 .2-2 .6-2.7"/></svg></span> Cosous</a>
-      <div class="links">
-        <a href="../index.html#features">Features</a>
-        <a href="../help/">Help Center</a>
-        <a href="privacy.html">Privacy</a>
-      </div>
-      <span>© 2025 Cosous. All rights reserved.</span>
-    </div>
-  </div>
-</footer>
-
-</body>
+<body><p style="font-family:system-ui,sans-serif;padding:24px">Redirecting… <a href="en/terms.html">Continue</a></p></body>
 </html>

@@ -1,0 +1,37 @@
+{
+  "ui": {
+    "navDownload": "Download App",
+    "eyebrow": "Legal",
+    "updatedLabel": "Last updated: ",
+    "footFeatures": "Features",
+    "footHelp": "Help Center",
+    "footPrivacy": "Privacy",
+    "footTerms": "Terms",
+    "footCopy": "© 2025 Cosous. All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "June 2026",
+    "intro": "This Privacy Policy explains what information Cosous collects, how we use it, and the choices you have. By using Cosous you agree to the practices described below.",
+    "sections": [
+      { "h": "Information We Collect", "body": "<p>We collect your <strong>email address</strong> solely for the purpose of authentication and account security via Supabase. We also store the content you create in the app — such as imported recipes, grocery lists, and meal plans — so it can sync across your devices. We do not sell your data to third parties.</p>" },
+      { "h": "How We Use Data", "body": "<ul><li>To verify your identity and keep you signed in.</li><li>To protect your account from unauthorized access.</li><li>To sync and back up your recipes, lists, and meal plans across devices.</li><li>To send essential service-related emails (like password resets).</li></ul>" },
+      { "h": "Data Security", "body": "<p>Your credentials are encrypted and managed by Supabase, a secure industry-standard authentication provider. Your content is stored securely and is available to you offline.</p>" },
+      { "h": "Your Rights", "body": "<p>You may request to delete your account and all associated data at any time through the app settings or by contacting <a href=\"mailto:support@cosous.app\">support@cosous.app</a>.</p>" },
+      { "h": "Contact Us", "body": "<p>If you have any questions about this policy, reach out at <a href=\"mailto:support@cosous.app\">support@cosous.app</a>.</p>" }
+    ]
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "updated": "June 2026",
+    "intro": "By downloading or using Cosous, you agree to the following terms. Please read them carefully.",
+    "sections": [
+      { "h": "Account Responsibility", "body": "<p>You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account.</p>" },
+      { "h": "Acceptable Use", "body": "<p>You agree not to use the service for any illegal activities, to transmit viruses or malicious code, or to attempt to breach the security of the application. Recipes and content you import remain your responsibility to use in line with the rights of their original creators.</p>" },
+      { "h": "Subscriptions", "body": "<p>Premium features are offered through paid subscriptions billed by the App Store or Google Play. You can manage, upgrade, or cancel your subscription at any time through your store account.</p>" },
+      { "h": "Termination", "body": "<p>We reserve the right to suspend or terminate accounts that violate these terms or engage in fraudulent activity.</p>" },
+      { "h": "Limitation of Liability", "body": "<p>The service is provided \"as is.\" We are not liable for any damages resulting from the use or inability to use the service.</p>" },
+      { "h": "Contact Us", "body": "<p>Questions about these terms? Reach out at <a href=\"mailto:support@cosous.app\">support@cosous.app</a>.</p>" }
+    ]
+  }
+}

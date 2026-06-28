@@ -1,0 +1,37 @@
+{
+  "ui": {
+    "navDownload": "Descargar app",
+    "eyebrow": "Legal",
+    "updatedLabel": "Última actualización: ",
+    "footFeatures": "Funciones",
+    "footHelp": "Centro de ayuda",
+    "footPrivacy": "Privacidad",
+    "footTerms": "Términos",
+    "footCopy": "© 2025 Cosous. Todos los derechos reservados."
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "updated": "junio de 2026",
+    "intro": "Esta Política de privacidad explica qué información recopila Cosous, cómo la usamos y las opciones que tienes. Al usar Cosous, aceptas las prácticas descritas a continuación.",
+    "sections": [
+      { "h": "Información que recopilamos", "body": "<p>Recopilamos tu <strong>dirección de correo electrónico</strong> únicamente con fines de autenticación y seguridad de la cuenta mediante Supabase. También almacenamos el contenido que creas en la app —como recetas importadas, listas de compra y planes de comidas— para que pueda sincronizarse entre tus dispositivos. No vendemos tus datos a terceros.</p>" },
+      { "h": "Cómo usamos los datos", "body": "<ul><li>Para verificar tu identidad y mantener tu sesión iniciada.</li><li>Para proteger tu cuenta de accesos no autorizados.</li><li>Para sincronizar y respaldar tus recetas, listas y planes de comidas entre dispositivos.</li><li>Para enviar correos esenciales del servicio (como restablecimientos de contraseña).</li></ul>" },
+      { "h": "Seguridad de los datos", "body": "<p>Tus credenciales se cifran y se gestionan con Supabase, un proveedor de autenticación seguro y de estándar en la industria. Tu contenido se almacena de forma segura y está disponible sin conexión.</p>" },
+      { "h": "Tus derechos", "body": "<p>Puedes solicitar eliminar tu cuenta y todos los datos asociados en cualquier momento desde los ajustes de la app o escribiendo a <a href=\"mailto:support@cosous.app\">support@cosous.app</a>.</p>" },
+      { "h": "Contacto", "body": "<p>Si tienes alguna pregunta sobre esta política, escríbenos a <a href=\"mailto:support@cosous.app\">support@cosous.app</a>.</p>" }
+    ]
+  },
+  "terms": {
+    "title": "Términos del servicio",
+    "updated": "junio de 2026",
+    "intro": "Al descargar o usar Cosous, aceptas los siguientes términos. Léelos con atención.",
+    "sections": [
+      { "h": "Responsabilidad de la cuenta", "body": "<p>Eres responsable de mantener la confidencialidad de tus credenciales de acceso y de todas las actividades que ocurran en tu cuenta.</p>" },
+      { "h": "Uso aceptable", "body": "<p>Aceptas no usar el servicio para actividades ilegales, no transmitir virus ni código malicioso y no intentar vulnerar la seguridad de la aplicación. Las recetas y el contenido que importas son tu responsabilidad y debes usarlos respetando los derechos de sus creadores originales.</p>" },
+      { "h": "Suscripciones", "body": "<p>Las funciones Premium se ofrecen mediante suscripciones de pago facturadas por la App Store o Google Play. Puedes gestionar, mejorar o cancelar tu suscripción en cualquier momento desde tu cuenta de la tienda.</p>" },
+      { "h": "Cancelación", "body": "<p>Nos reservamos el derecho de suspender o cancelar las cuentas que infrinjan estos términos o realicen actividades fraudulentas.</p>" },
+      { "h": "Limitación de responsabilidad", "body": "<p>El servicio se ofrece \"tal cual\". No somos responsables de ningún daño derivado del uso o la imposibilidad de uso del servicio.</p>" },
+      { "h": "Contacto", "body": "<p>¿Preguntas sobre estos términos? Escríbenos a <a href=\"mailto:support@cosous.app\">support@cosous.app</a>.</p>" }
+    ]
+  }
+}
