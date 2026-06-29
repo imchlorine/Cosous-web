@@ -3,28 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .card { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; max-width: 400px; width: 90%; }
-        .icon { font-size: 50px; margin-bottom: 20px; }
-        h1 { font-size: 24px; margin-bottom: 10px; color: #111827; }
-        p { color: #6b7280; line-height: 1.5; margin-bottom: 25px; }
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.1s; }
-        .btn-primary { background-color: #3ecf8e; color: white; }
-        .btn-error { background-color: #ef4444; color: white; }
-        .btn:active { transform: scale(0.98); }
-    </style>
+    <title>Reset Password — Cosous</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../auth.css">
 </head>
 <body>
 
     <div class="card">
-        <div id="icon" class="icon">🔑</div>
+        <span class="brand"><img src="/assets/favicon.svg" alt=""> Cosous</span>
+        <div id="icon" class="icon is-info"><svg viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5"/><path d="m11 12 9.5-9.5"/><path d="m15.5 6.5 3 3 2.5-2.5-3-3"/></svg></div>
         <h1 id="title">Reset Password</h1>
         <p id="message">Verifying your request...</p>
         <div id="action-area"></div>
     </div>
 
+    <script src="../auth.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
         const code = params.get('code');
@@ -34,14 +30,13 @@
         // Configuration: Use your same SwiftUI App Scheme
         const appScheme = "Cosous://reset-password";
 
-        const iconEl = document.getElementById('icon');
         const titleEl = document.getElementById('title');
         const messageEl = document.getElementById('message');
         const actionArea = document.getElementById('action-area');
 
         // 1. Check for missing params (Direct access check)
         if (!code && !error) {
-            window.location.href = "/404"; // Or show your custom 404 logic
+            window.location.href = "/404.html"; // Show the branded 404 page
         }
 
         // 2. CASE: SUCCESS (Code is present)
@@ -61,13 +56,13 @@
         
         // 3. CASE: ERROR (Expired or Invalid)
         else {
-            iconEl.innerText = "⚠️";
+            setAuthIcon("alert", "error");
             titleEl.innerText = "Link Expired";
             messageEl.innerText = errorDescription || "This password reset link is invalid or has expired.";
             
             actionArea.innerHTML = `
                 <a href="Cosous://forgot-password" class="btn btn-error">Return to App</a>
-                <p style="font-size: 12px; margin-top: 15px; color: #9ca3af;">Please request a new link from the login screen.</p>
+                <p class="hint">Please request a new link from the login screen.</p>
             `;
         }
     </script>

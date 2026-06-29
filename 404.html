@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — Cosous</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#E8852B;--ink:#2A2622;--muted:#7A736B;--bg:#F5F1E8;--line:#E7E0D3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased}
+.box{text-align:center;max-width:440px}
+.mark{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--primary),#ff9472);display:grid;place-items:center;color:#fff;margin:0 auto 26px}
+.mark svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.code{font-size:clamp(3.5rem,12vw,6rem);font-weight:800;letter-spacing:-2px;line-height:1;color:var(--primary)}
+h1{font-size:1.5rem;font-weight:800;margin:6px 0 12px}
+p{color:var(--muted);margin-bottom:28px;line-height:1.6}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-soft{background:#fff;color:var(--ink);border:1px solid var(--line)}
+a{text-decoration:none}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="mark">
+    <svg viewBox="0 0 24 24"><path d="M4 9h16v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="4" y1="12.5" x2="2" y2="12.5"/><line x1="20" y1="12.5" x2="22" y2="12.5"/><path d="M9.5 6c-.4-1 .2-2 .6-2.7M14.5 6c-.4-1 .2-2 .6-2.7"/></svg>
+  </div>
+  <div class="code">404</div>
+  <h1>Page not found</h1>
+  <p>The page you're looking for has been moved or no longer exists. Let's get you back to the kitchen.</p>
+  <div class="actions">
+    <a href="/" class="btn btn-dark">Back to Home</a>
+    <a href="/help/" class="btn btn-soft">Help Center</a>
+  </div>
+</div>
+</body>
+</html>

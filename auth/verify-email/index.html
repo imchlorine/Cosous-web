@@ -3,28 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Verification</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .card { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; max-width: 400px; width: 90%; }
-        .icon { font-size: 50px; margin-bottom: 20px; }
-        h1 { font-size: 24px; margin-bottom: 10px; color: #111827; }
-        p { color: #6b7280; line-height: 1.5; margin-bottom: 25px; }
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.2s; }
-        .btn-success { background-color: #3ecf8e; color: white; }
-        .btn-error { background-color: #ef4444; color: white; }
-        .btn:active { transform: scale(0.98); }
-    </style>
+    <title>Account Verification — Cosous</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../auth.css">
 </head>
 <body>
 
     <div class="card">
-        <div id="icon" class="icon">⏳</div>
+        <span class="brand"><img src="/assets/favicon.svg" alt=""> Cosous</span>
+        <div id="icon" class="icon is-info"><svg class="spin" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" stroke-width="2.2"/></svg></div>
         <h1 id="title">Verifying...</h1>
         <p id="message">Please wait while we check your link.</p>
         <div id="action-area"></div>
     </div>
 
+    <script src="../auth.js"></script>
     <script>
         // 1. Parse the URL parameters
         const params = new URLSearchParams(window.location.search);
@@ -35,14 +31,13 @@
         // Configuration: Change this to your Xcode URL Scheme
         const appScheme = "Cosous://login-callback";
 
-        const iconEl = document.getElementById('icon');
         const titleEl = document.getElementById('title');
         const messageEl = document.getElementById('message');
         const actionArea = document.getElementById('action-area');
 
         // 2. CASE: SUCCESS (Link is valid)
         if (code && !error) {
-            iconEl.innerText = "✅";
+            setAuthIcon("check", "success");
             titleEl.innerText = "Verified!";
             messageEl.innerText = "Your email is confirmed. Redirecting you to the app...";
             
@@ -58,7 +53,7 @@
         
         // 3. CASE: ERROR (Expired, Invalid, or Already Used)
         else {
-            iconEl.innerText = "❌";
+            setAuthIcon("alert", "error");
             titleEl.innerText = "Link Expired";
             
             // Use Supabase's error message or a default one
@@ -66,9 +61,7 @@
             
             actionArea.innerHTML = `
                 <a href="Cosous://resend" class="btn btn-error">Return to App</a>
-                <p style="font-size: 12px; margin-top: 15px; color: #9ca3af;">
-                    Tip: Request a new link from the login screen.
-                </p>
+                <p class="hint">Tip: Request a new link from the login screen.</p>
             `;
         }
     </script>

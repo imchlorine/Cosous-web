@@ -3,28 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Email Verification</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .card { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; max-width: 400px; width: 90%; }
-        .icon { font-size: 50px; margin-bottom: 20px; }
-        h1 { font-size: 24px; margin-bottom: 10px; color: #111827; }
-        p { color: #6b7280; line-height: 1.5; margin-bottom: 25px; }
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.1s; cursor: pointer; border: none; }
-        .btn-primary { background-color: #3ecf8e; color: white; }
-        .btn-error { background-color: #ef4444; color: white; }
-        .btn:active { transform: scale(0.98); }
-    </style>
+    <title>Link Email Verification — Cosous</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../auth.css">
 </head>
 <body>
 
     <div class="card">
-        <div id="icon" class="icon">📧</div>
+        <span class="brand"><img src="/assets/favicon.svg" alt=""> Cosous</span>
+        <div id="icon" class="icon is-info"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6 9-6"/></svg></div>
         <h1 id="title">Verifying Email</h1>
         <p id="message">Linking your email to your account...</p>
         <div id="action-area"></div>
     </div>
 
+    <script src="../auth.js"></script>
     <script>
         // Parse the URL fragments/params
         // Supabase often puts tokens in the hash (#) or query (?) depending on config
@@ -37,7 +33,6 @@
         // We change 'reset-password' to 'link-email' so your app knows which screen to show
         const appScheme = "Cosous://link-email";
 
-        const iconEl = document.getElementById('icon');
         const titleEl = document.getElementById('title');
         const messageEl = document.getElementById('message');
         const actionArea = document.getElementById('action-area');
@@ -60,14 +55,14 @@
         
         // 3. CASE: ERROR
         else if (error) {
-            iconEl.innerText = "⚠️";
+            setAuthIcon("alert", "error");
             titleEl.innerText = "Verification Failed";
             messageEl.innerText = errorDescription || "This link has expired or is invalid.";
             
             // Redirect back to your settings or security page
             actionArea.innerHTML = `
                 <a href="Cosous://settings" class="btn btn-error">Back to Settings</a>
-                <p style="font-size: 12px; margin-top: 15px; color: #9ca3af;">Please try linking your email again.</p>
+                <p class="hint">Please try linking your email again.</p>
             `;
         }
         

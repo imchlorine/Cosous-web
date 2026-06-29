@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Deep-link landing pages have no standalone content
+Disallow: /auth/
+
+Sitemap: https://cosous.app/sitemap.xml

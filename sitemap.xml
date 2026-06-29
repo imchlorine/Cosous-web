@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://cosous.app/</loc></url>
+
+  <url><loc>https://cosous.app/help/en/</loc></url>
+  <url><loc>https://cosous.app/help/zh/</loc></url>
+  <url><loc>https://cosous.app/help/es/</loc></url>
+  <url><loc>https://cosous.app/help/ja/</loc></url>
+
+  <url><loc>https://cosous.app/legal/en/privacy.html</loc></url>
+  <url><loc>https://cosous.app/legal/zh/privacy.html</loc></url>
+  <url><loc>https://cosous.app/legal/es/privacy.html</loc></url>
+  <url><loc>https://cosous.app/legal/ja/privacy.html</loc></url>
+
+  <url><loc>https://cosous.app/legal/en/terms.html</loc></url>
+  <url><loc>https://cosous.app/legal/zh/terms.html</loc></url>
+  <url><loc>https://cosous.app/legal/es/terms.html</loc></url>
+  <url><loc>https://cosous.app/legal/ja/terms.html</loc></url>
+</urlset>
