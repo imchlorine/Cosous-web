@@ -50,7 +50,7 @@
   --shadow:0 24px 50px rgba(42,38,34,.08);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 body{
   font-family:'Plus Jakarta Sans','Noto Sans SC','Noto Sans JP',system-ui,sans-serif;
   background:var(--bg);
@@ -120,19 +120,22 @@ nav{display:flex;align-items:center;justify-content:space-between;height:74px}
 .float-deco{position:absolute;inset:0;pointer-events:none}
 .chip{position:absolute;width:var(--size,54px);height:var(--size,54px);border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:var(--shadow);animation:bobA 5s ease-in-out infinite}
 .chip img{width:62%;height:62%;object-fit:contain;border-radius:22%}
+/* Chips are anchored a fixed distance out from the phone's center (the phone is
+   340px wide → 170px half), so the gap to the frame stays constant at any width.
+   The inner edge of each chip sits (offset)px from center: 170 + ~40–100px clear. */
 /* left of phone — each: position, --size, animation name/duration/delay */
-.c1 {top:495px;left:37%;--size:58px;animation:bobA 5.6s ease-in-out -0.3s infinite}
-.c2 {top:620px;left:30%;--size:46px;animation:bobC 6.8s ease-in-out -2.1s infinite}
-.c3 {top:740px;left:35%;--size:67px;animation:bobB 4.6s ease-in-out -1.2s infinite}
-.c4 {top:865px;left:28%;--size:51px;animation:bobD 7.4s ease-in-out -3.4s infinite}
-.c5 {top:985px;left:35%;--size:62px;animation:bobA 5.1s ease-in-out -0.9s infinite}
-.c6 {top:1090px;left:31%;--size:47px;animation:bobC 6.2s ease-in-out -4.0s infinite}
+.c1 {top:495px;right:calc(50% + 212px);--size:58px;animation:bobA 5.6s ease-in-out -0.3s infinite}
+.c2 {top:620px;right:calc(50% + 256px);--size:46px;animation:bobC 6.8s ease-in-out -2.1s infinite}
+.c3 {top:740px;right:calc(50% + 206px);--size:67px;animation:bobB 4.6s ease-in-out -1.2s infinite}
+.c4 {top:865px;right:calc(50% + 268px);--size:51px;animation:bobD 7.4s ease-in-out -3.4s infinite}
+.c5 {top:985px;right:calc(50% + 216px);--size:62px;animation:bobA 5.1s ease-in-out -0.9s infinite}
+.c6 {top:1090px;right:calc(50% + 252px);--size:47px;animation:bobC 6.2s ease-in-out -4.0s infinite}
 /* right of phone */
-.c7 {top:495px;right:37%;--size:70px;animation:bobB 6.0s ease-in-out -1.7s infinite}
-.c8 {top:620px;right:30%;--size:49px;animation:bobD 5.4s ease-in-out -2.8s infinite}
-.c9 {top:740px;right:35%;--size:60px;animation:bobA 7.0s ease-in-out -0.5s infinite}
-.c10{top:865px;right:28%;--size:44px;animation:bobC 4.8s ease-in-out -3.1s infinite}
-.c11{top:985px;right:35%;--size:64px;animation:bobB 6.5s ease-in-out -1.5s infinite}
+.c7 {top:495px;left:calc(50% + 212px);--size:70px;animation:bobB 6.0s ease-in-out -1.7s infinite}
+.c8 {top:620px;left:calc(50% + 258px);--size:49px;animation:bobD 5.4s ease-in-out -2.8s infinite}
+.c9 {top:740px;left:calc(50% + 206px);--size:60px;animation:bobA 7.0s ease-in-out -0.5s infinite}
+.c10{top:865px;left:calc(50% + 268px);--size:44px;animation:bobC 4.8s ease-in-out -3.1s infinite}
+.c11{top:985px;left:calc(50% + 214px);--size:64px;animation:bobB 6.5s ease-in-out -1.5s infinite}
 @media(max-width:820px){.chip{display:none}}
 @keyframes bobA{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(0,-16px) rotate(-4deg)}}
 @keyframes bobB{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(7px,-12px) rotate(5deg)}}

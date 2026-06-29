@@ -8,7 +8,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../auth.css">
+    <!-- Styles are inlined (not an external file) so this email-link page always
+         renders correctly, even if a stylesheet request fails or is cached stale. -->
+    <style>
+    :root{--primary:#E8852B;--primary-soft:#F6E2C8;--ink:#2A2622;--muted:#7A736B;--bg:#F5F1E8;--line:#E7E0D3;--shadow:0 24px 50px rgba(42,38,34,.08)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Plus Jakarta Sans','Noto Sans SC','Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:44px 40px;text-align:center;max-width:420px;width:100%}
+    .brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:1.15rem;margin-bottom:26px}
+    .brand img{width:34px;height:34px;border-radius:10px;display:block}
+    .icon{width:74px;height:74px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;background:var(--primary-soft);color:var(--primary)}
+    .icon svg{width:38px;height:38px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .icon.is-info{background:var(--primary-soft);color:var(--primary)}
+    .icon.is-success{background:#E4F3EA;color:#1FA463}
+    .icon.is-error{background:#FBE7E1;color:#D9542F}
+    .icon .spin{animation:cs-spin .9s linear infinite;transform-origin:center}
+    @keyframes cs-spin{to{transform:rotate(360deg)}}
+    h1{font-size:1.5rem;font-weight:800;letter-spacing:-.4px;margin-bottom:10px;color:var(--ink)}
+    p{color:var(--muted);line-height:1.6;margin-bottom:26px}
+    .btn{display:inline-block;cursor:pointer;border:none;padding:14px 30px;border-radius:999px;font-family:inherit;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .2s,box-shadow .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn:active{transform:scale(.98)}
+    .btn-primary,.btn-success{background:var(--ink);color:#fff}
+    .btn-primary:hover,.btn-success:hover{box-shadow:0 12px 24px rgba(31,36,33,.25)}
+    .btn-error{background:#fff;color:var(--ink);border:1px solid var(--line)}
+    .btn-error:hover{border-color:var(--primary)}
+    .hint{font-size:.78rem;margin-top:15px;color:var(--muted)}
+    </style>
 </head>
 <body>
 
@@ -20,7 +46,19 @@
         <div id="action-area"></div>
     </div>
 
-    <script src="../auth.js"></script>
+    <script>
+    /* Inline status icons (no emoji, no external deps). */
+    (function(){
+      const ICONS={
+        spinner:'<svg class="spin" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9" stroke-width="2.2"/></svg>',
+        check:'<svg viewBox="0 0 24 24" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>',
+        alert:'<svg viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+        key:'<svg viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5"/><path d="m11 12 9.5-9.5"/><path d="m15.5 6.5 3 3 2.5-2.5-3-3"/></svg>',
+        mail:'<svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6 9-6"/></svg>'
+      };
+      window.setAuthIcon=function(name,tone){const el=document.getElementById('icon');if(!el)return;el.className='icon is-'+(tone||'info');el.innerHTML=ICONS[name]||'';};
+    })();
+    </script>
     <script>
         // 1. Parse the URL parameters
         const params = new URLSearchParams(window.location.search);

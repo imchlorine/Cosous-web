@@ -28,8 +28,15 @@ Zero-dependency static site (plain HTML / CSS / JS) — deploy by serving the fo
 │   ├── privacy.html terms.html      # Language redirects
 │   └── <lang>/privacy.html terms.html
 └── auth/                 # Deep-link landing pages for the iOS app
-    ├── verify-email/  reset-password/  link-email/
+    ├── verify-email/  reset-password/  link-email/   # self-contained (inline CSS/JS)
 ```
+
+> **Auth pages are intentionally self-contained.** They inline their CSS and JS
+> instead of linking shared files. These pages are opened from one-time email links
+> and immediately try to open the app via a custom URL scheme, so they must render
+> correctly on the very first paint — even if an external stylesheet request fails,
+> is cached stale, or is interrupted by the app handoff. Keep them dependency-free
+> (the only external request is the optional web font, which degrades gracefully).
 
 ## Internationalization
 
@@ -67,8 +74,8 @@ Emoji render inconsistently across platforms and don't respect the brand palette
 - The landing page keeps its icons in the SVG sprite at the top of `index.html`
   (`<symbol id="ic-…">`), referenced with `<use href="#ic-…">`.
 - The Help / Legal pages use inline SVGs in their shared markup.
-- The auth pages share a small icon set in `auth/auth.js` (`spinner`, `check`,
-  `alert`, `key`, `mail`), swapped via `setAuthIcon(name, tone)` where `tone` is
+- The auth pages carry their own inline icon set (`spinner`, `check`, `alert`,
+  `key`, `mail`), swapped via `setAuthIcon(name, tone)` where `tone` is
   `info` | `success` | `error`. Add new status icons there, not as emoji.
 
 SVG icons should use `fill:none; stroke:currentColor` so they inherit color, and a
