@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/base.css">
+<link rel="stylesheet" href="../legal.css">
+</head>
+<body>
+
+<section class="legal-hero">
+  <div class="wrap">
+    <div class="eyebrow" id="eyebrow">Legal</div>
+    <h1 id="title">Loading…</h1>
+    <div class="updated" id="updated"></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="prose">
+    <p id="intro"></p>
+    <div id="sections"></div>
+  </div>
+</section>
+
+{% include "footer.njk" %}
+
+<script src="../legal.js"></script>
+</body>
+</html>

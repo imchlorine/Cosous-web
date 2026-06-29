@@ -7,6 +7,7 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Dependencies / build (if a build step is ever added)
+# Dependencies / build
 node_modules/
 dist/
+_site/

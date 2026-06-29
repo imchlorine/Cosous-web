@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Center — Cosous</title>
+<meta name="description" content="Cosous Help Center — answers to common questions about importing recipes, grocery lists, meal planning, premium, and your account.">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/base.css">
+<link rel="stylesheet" href="../help.css">
+</head>
+<body>
+
+{% include "header.njk" %}
+
+<section class="help-hero">
+  <div class="wrap">
+    <div class="eyebrow" id="eyebrow">Help Center</div>
+    <h1 id="title">How can we help?</h1>
+    <p id="subtitle">Search our most common questions, or browse the topics below.</p>
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="faqSearch" type="text" placeholder="Search for an answer…" autocomplete="off">
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div id="faqRoot"></div>
+    <div class="faq-loading" id="faqLoading">Loading…</div>
+    <div class="no-results" id="noResults">No answers matched your search.</div>
+  </div>
+</section>
+
+<section class="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <h2 id="contactTitle">Still need help?</h2>
+      <p id="contactText">Can't find what you're looking for? Our team is happy to help you out.</p>
+      <a href="mailto:support@cosous.app" class="btn-dark" id="contactBtn">Contact Support</a>
+    </div>
+  </div>
+</section>
+
+{% include "footer.njk" %}
+
+<script src="../help.js"></script>
+</body>
+</html>
